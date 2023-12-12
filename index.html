@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--
+  Name: Parvathy Santhosh, China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+
+<head>
+  <title>Sustainable Spoonfuls Home</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Import fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+  <!-- CSS Styling -->
+  <link rel="stylesheet" href="CSS\reset.css">
+  <link rel="stylesheet" href="CSS\style.css">
+  <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+  <style>
+  a:hover {
+    color: rgb(0, 255, 106); /* Color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+</style>
+
+  <!-- Poll JS -->
+  <!-- keep api script stuff here -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Handle form submission
+      document.getElementById('poll-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+
+        fetch('/poll/vote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ rating: formData.get('rating') })
+        })
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('message').textContent = data.message;
+          });
+      });
+    });
+  </script>
+  <!-- --------------------------- -->
+</head>
+
+<!-- 
+  PARVATHY
+    ~ add <aside> tag
+    ~ recipie pages are tables
+    ~ contact page: form
+      * form validation
+    ~ 400 words on each page (i will not be doing that.)
+    ~ 3 graphics (vector and raster) per page in <figure>
+
+  CHINA
+    ~ XX3 external links on each page
+    ~ 2 embeddables
+      * XXyoutube video on home page
+      * get random resipe(api requirement)
+        - on a scale of 1-10 how sustainable do you think you are
+    ~ XXjavascript to swtich to dark mode and enable dark mode style sheet
+    ~ XXjava script pop up to ask something 
+    ~fix read me
+    
+  -->
+
+<body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <!-- ------------------------------------------------------------------- -->
+
+  <div class="page_title">
+    <h1>Welcome</h1>
+    <h2 style="font-family: 'Lucida Handwriting', 'Brush Script MT', cursive;">to Sustainable Spoonfuls!</h2>
+  </div>
+
+  <div class="row">
+    <div class="articles_row">
+      <div class="article">
+        <h1 style="font-size: 20px; padding-bottom: 15px;">Today's featured recipe:</h1>
+        <h2>HOMEMADE PECAN ROLLS</h2>
+        <h5>posted on December 2, 2023</h5>
+        <figure>
+          <img src="Assets\pecan_rolls.jpg" alt="pecan rolls">
+          <figcaption>Recipe from Sarah Cook, Sustainable Cooks</figcaption>
+        </figure>
+        <p>
+          These homemade pecan rolls pair pillowy soft dough with spirals of buttery cinnamon brown sugar filling,
+          then top it all off with a sticky, nutty glaze. Spoil your family with these butterscotch sticky buns.
+        </p>
+        <p style="padding-top: 20px; font-style: italic;">
+          Find the recipe for these heavenly pillow here:
+          <a href="https://www.sustainablecooks.com/pecan-rolls/" style="text-decoration: underline;">
+            Sustainable Cooks</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="about_row">
+      <div class="founder_tile">
+        <figure class="founder">
+          <img src="Assets\founderTS.jpg" alt="Image of our founder, Taylor Swift">
+          <figcaption>Our founder <br> Taylor Swift</figcaption>
+        </figure>
+        <p style="padding-bottom: 20px; font-size: 20px;">Welcome to Sustainable Spoonfuls, where sustainability meets
+          sensational taste!
+          Founded by Taylor Swift, join us in our era of delicious recipes and eco-freiendly living.
+          Let's make a positive impact through mindful choices, one bite at a time!
+        </p>
+        <a href="about.html" style="text-decoration: underline;">Learn more about our mission here!</a>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <!-- CHINA: keep poll API stuff within this div -->
+      <div class="poll">
+      <div id="recipeContainer"></div>
+        <h2>Try a new Recipe!</h2>
+        <button onclick="getRandomRecipe()">Try your luck!</button>
+        <script>
+          function getRandomRecipe(){
+          const apiUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random';
+          recipeContainer.innerHTML = '';
+          fetch(apiUrl, {headers: {
+            'X-RapidAPI-Key': '0d957c29cemshb7d8ad46d2f4870p103dfajsnd84314fbd277',
+            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+          } },)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              var recipe = data.recipes[0];
+              console.log(recipe);
+              var recipeContainer = document.getElementById('recipeContainer');
+            
+            // Create an image element
+            var imageElement = document.createElement('img');
+            imageElement.src = recipe.image;
+            recipeContainer.appendChild(imageElement);
+
+            // Create a title element
+            var titleElement = document.createElement('h1');
+            titleElement.textContent = recipe.title;
+            recipeContainer.appendChild(titleElement);
+
+            // Create a link element
+            var sourceLinkElement = document.createElement('a');
+            sourceLinkElement.href = recipe.sourceUrl;
+            sourceLinkElement.textContent = 'Source Link';
+            recipeContainer.appendChild(sourceLinkElement);
+              
+
+              console.log(recipe);
+              // Process the data as needed
+            })
+            .catch(error => {
+              console.error('Error fetching data:', error);
+            });
+          }
+        </script>
+        <div></div>
+      </div>
+      <!-- ------------------------------------------ -->
+
+    </div>
+  </div>
+
+  <div class="month_recipes">
+    <h2 style="padding: 20px; font-family: 'Lucida Handwriting', 'Brush Script MT', cursive;">This month's top recipes:
+    </h2>
+    <div class="bottom_row">
+      <div class="small_article">
+        <h3>CROCK POT HOT COCOA</h3>
+        <img src="Assets\hotcoco.png" alt="pecan rolls">
+        <p>Find the recipe here:</p>
+        <a href="https://www.sustainablecooks.com/slowcooker-hot-chocolate/" style="text-decoration: underline;">
+          Sustainable Cooks</a>
+      </div>
+      <div class="small_article">
+        <h3>TURKEY NOODLE SOUP</h3>
+        <img src="Assets\tns.png" alt="pecan rolls">
+        <p>Find the recipe here:</p>
+        <a href="https://www.sustainablecooks.com/turkey-noodle-soup/" style="text-decoration: underline;">
+          Sustainable Cooks</a>
+      </div>
+      <div class="small_article">
+        <h3>BANANA FRENCH TOAST</h3>
+        <img src="Assets\bananaft.png" alt="pecan rolls">
+        <p>Find the recipe here:</p>
+        <a href="https://www.sustainablecooks.com/banana-french-toast/" style="text-decoration: underline;">
+          Sustainable Cooks</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- dark mode  -->
+  <script>
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+
+</body>
+
+<footer>
+  <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+  <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+</footer>
+
+</html>
