@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--
+ China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+
+<head>
+  <title>About Us</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Import fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+  <!-- CSS Styling -->
+  <link rel="stylesheet" href="CSS\reset.css">
+  <link rel="stylesheet" href="CSS\style.css">
+  <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+
+  <style>
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <!-- ------------------------------------------------------------------- -->
+
+  <div class="page_title">
+    <h1>About Us</h1>
+  </div>
+
+  <div class="contents">
+    <div class="left">
+      <div class="about_blog">
+        <h2 style="padding-bottom: 30px;">Welcome to Sustainable Spoonfuls, the intersection of delicious flavors and
+          sustainable living!</h2>
+        <p>
+          We're not just about recipes;
+          we're about making a positive impact on the planet through the food choices we make. And leading this charge
+          is none
+          other than the incredible Taylor Swift, the force behind this movement.
+        </p>
+        <p>
+          Taylor Swift, known for her chart-topping music and philanthropic endeavors, has joined forces with us to
+          bring you a
+          unique space where sustainability and food take center stage. Beyond the glitz and glamour of the stage,
+          Taylor is
+          passionate about making a difference in the world, and what better way to do that than through the universal
+          language
+          of food?
+        </p>
+        <p>
+          In this blog, you'll find a harmonious blend of mouthwatering recipes, sustainable cooking tips, and inspiring
+          stories
+          that celebrate our planet and its incredible resources. Taylor's commitment to environmental stewardship and
+          love for
+          delicious, wholesome food has paved the way for a community that shares these values.
+        </p>
+        <p>
+          Join us on this exciting journey as we explore the delectable world of sustainable cuisine, guided by Taylor's
+          vision
+          for a brighter, greener future. Let's savor the flavors, embrace mindful choices, and together, make a
+          positive
+          impact—one delicious recipe at a time. Welcome to Sustainable Spoonfuls, where sustainability meets
+          sensational taste!
+        </p>
+
+        <h2 style="padding-bottom: 30px; padding-top: 30px;">Our mission</h2>
+        <p>
+          At Sustainable Spoonfuls, we blend the art of flavor with the science of sustainability.
+          Our mission is to inspire a community of conscious eaters through delectable recipes and eco-friendly living.
+          Every
+          spoonful is a step towards a brighter, greener future. Join us in savoring the flavors of sustainability—one
+          delicious
+          recipe at a time.
+        </p>
+      </div>
+
+      <div id="video-container">
+        <h2 style="padding-bottom: 30px; padding-top: 30px;">Why is sustainable nutrition important?</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/grJarwcfs_4?si=WpuajdxIKTthwlQe"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="founder_tile">
+        <figure class="founder">
+          <img src="Assets\founderTS.jpg" alt="Image of our founder, Taylor Swift">
+          <figcaption>Our founder <br> Taylor Swift</figcaption>
+        </figure>
+        <p style="padding-bottom: 20px;">Welcome to Sustainable Spoonfuls, where sustainability meets sensational taste!
+          Founded by Taylor Swift, join us in our era of delicious recipes and eco-freiendly living.
+          Let's make a positive impact through mindful choices, one bite at a time!
+        </p>
+        <p>See what our founder is up to!</p>
+        <ul>
+          <li><a href="https://plays.org/eco-empire/" target="_blank">Taylor's Instagram</a></li>
+      </div>
+    </div>
+  </div>
+  <div id="overlay"></div>
+  <div id="ratingModal">
+    <span id="closeBtn" onclick="closeModal()">✖</span>
+    <p>How would you rate our site? (1-5)</p>
+    <input type="number" id="userRating" min="1" max="5" />
+    <button onclick="submitRating()">Submit</button>
+  </div>
+  <script>
+    // Function to show the rating modal
+    function showRatingModal() {
+      var hasRatedBefore = localStorage.getItem('hasRatedBefore');
+
+      // Check if the pop-up has not been displayed before
+      if (!hasRatedBefore) {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('ratingModal').style.display = 'block';
+      }
+    }
+
+    // Function to close the rating modal and set a flag in localStorage
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('ratingModal').style.display = 'none';
+
+      // Set a flag in localStorage indicating that the pop-up has been displayed
+      localStorage.setItem('hasRatedBefore', true);
+    }
+
+    // Function to handle rating submission
+    function submitRating() {
+      var userRating = document.getElementById('userRating').value;
+
+      // Validate the user input
+      if (userRating !== "" && userRating >= 1 && userRating <= 5) {
+        closeModal();
+        // Display a thank you message based on the rating
+        if (userRating >= 4) {
+          alert("Thank you for your positive rating! We appreciate your feedback.");
+        } else {
+          alert("We're sorry to hear that. We appreciate your feedback and will work to improve.");
+        }
+      } else {
+        alert("Please enter a valid rating between 1 and 5.");
+      }
+    }
+
+    // Call the function after a delay of 5 seconds (5000 milliseconds)
+    setTimeout(showRatingModal, 5000);
+  </script>
+
+  <div id="overlay"></div>
+  <div id="ratingModal">
+    <span id="closeBtn" onclick="closeModal()">✖</span>
+    <p>How would you rate our site? (1-5)</p>
+    <input type="number" id="userRating" min="1" max="5" />
+    <button onclick="submitRating()">Submit</button>
+  </div>
+
+  <script>
+    // Function to check the user's preference in localStorage
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+
+</body>
+
+<footer>
+  <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+  <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+</footer>
+
+</html>

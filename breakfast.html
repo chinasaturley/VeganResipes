@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+  China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+  <head>
+    <title>Breakfast Recipes</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Import fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="CSS\style.css">
+    <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+
+  </head>
+
+  <body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li> 
+      </ul>
+    </header>
+  </div>
+<!-- ------------------------------------------------------------------- -->
+
+  <div class="page_title">
+    <h1>Breakfast Recipes</h1>
+  </div>
+
+  <table>
+    <tbody>
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\pecan_rolls.jpg" alt="Pecan Rolls">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Pecan Rolls</h2>
+            <p>
+              These homemade pecan rolls pair pillowy soft dough with spirals of buttery cinnamon brown sugar filling, then top it all
+              off with a sticky, nutty glaze. Spoil your family with these butterscotch sticky buns.
+            </p>
+            <a href="https://www.sustainablecooks.com/pecan-rolls/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\bananaft.png" alt="Banana French Toast">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Banana French Toast</h2>
+            <p>
+              With buttery brioche and a cinnamon-scented banana custard, this banana French toast recipe is a breakfast favorite. 
+              It’s a classic French toast recipe with a bit of a twist!
+            </p>
+            <a href="https://www.sustainablecooks.com/banana-french-toast/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\Hashbrown-Breakfast-Casserole-PIN-4-540x540.jpg" alt="Hashbrown Breakfast Casserole">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Hashbrown Breakfast Casserole</h2>
+            <p>
+              Brunches and potlucks call for dishes that feed a crowd and this hashbrown breakfast casserole delivers. Supremely
+              cheesy, creamy, and loaded with bacon and shredded potatoes, it’s going to disappear fast!
+            </p>
+            <a href="https://www.sustainablecooks.com/hashbrown-breakfast-casserole/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\cast-iron-potatoes-10-540x540.jpg" alt="Cast Iron Potatoes">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Cast Iron Potatoes</h2>
+            <p>
+              These cast iron potatoes are sure to be a family favorite. Great for breakfast or as a side for meals, these crispy
+              roasted potatoes are vegan and gluten-free.
+            </p>
+            <a href="https://www.sustainablecooks.com/home-fries/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- dark mode  -->
+  <script>
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+  
+</body>
+
+  <footer>
+    <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+    <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+  </footer>
+  
+</html>
