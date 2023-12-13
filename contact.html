@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+   China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+
+<head>
+  <title>Contact Us</title>
+
+  <meta charset="UTF-8" />
+  <meta fname="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Import fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+  <!-- CSS Styling -->
+  <link rel="stylesheet" href="CSS\reset.css">
+  <link rel="stylesheet" href="CSS\style.css">
+  <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+
+    <!-- Form Validation JS -->
+    <script>
+      function validateForm() {
+        var fnameInput = document.getElementById('fname').value;
+        var lnameInput = document.getElementById('lname').value;
+        var errorMessage = document.getElementById('errorMessage');
+  
+        if (fnameInput.trim() === '' || lnameInput.trim() === '') {
+          errorMessage.textContent = 'Please fill out the required field.';
+          return false;
+        } else {
+          errorMessage.textContent = '';
+          return true;
+        }
+      }
+    </script>
+    <style>
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+<body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <!-- ------------------------------------------------------------------- -->
+  <div class="page_title">
+    <h1>Contact Us</h1>
+  </div>
+
+  <div class="contents">
+    <form action="/submit-form" method="post" onsubmit="return validateForm()">
+      <!-- First Name Input -->
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" placeholder="Your first name..." required>
+
+      <!-- Last Name Input -->
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname" placeholder="Your last name..." required>
+
+      <!-- Country Input -->
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="" disabled selected>Choose your country...</option>
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="australia">Australia</option>
+      </select>
+
+      <!-- Word Input -->
+      <label for="words">Tell us about you!</label>
+      <textarea id="words" name="words" placeholder="Write something.." style="height:200px"></textarea>
+
+      <!-- Form Submission -->
+      <div class="error-message" id="errorMessage"></div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+ 
+  <aside class="links_box">
+    <h3 style="font-family: 'Lucida Handwriting', 'Brush Script MT', cursive;">Sustainability games for the kids while you cook!</h3>
+    <ul>
+      <li><a href="https://plays.org/eco-empire/" target="_blank">Eco Empire</a></li>
+      <li><a href="https://www3.epa.gov/recyclecity/mainmap.htm" target="_blank">Recycle City</a></li>
+  </aside>
+
+  <script>
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+  
+</body>
+
+<footer>
+  <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+  <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+</footer>
+
+</html>
