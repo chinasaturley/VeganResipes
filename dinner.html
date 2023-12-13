@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+  China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+
+<head>
+  <title>Dinner Recipes</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Import fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="CSS\style.css">
+    <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+
+</head>
+
+<body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <!-- ------------------------------------------------------------------- -->
+  <div class="page_title">
+    <h1>Dinner Recipes</h1>
+  </div>
+
+  <table>
+    <tbody>
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\FS-Baked-Potato-Soup-2-540x540.jpg" alt="Instant Pot Potato Soup">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Instant Pot Potato Soup</h2>
+            <p>
+              A cozy bowl of comfort food, Instant Pot potato soup is a healthy and simple dinner. This creamy potato soup is a super
+              easy and delicious fast weeknight meal.
+            </p>
+            <a href="https://www.sustainablecooks.com/baked-potato-soup-nourishing-edition/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\Dairy-Free-Frittata-3-540x540.jpg" alt="Dairy-Free Frittata">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Dairy-Free Frittata</h2>
+            <p>
+              An easy and healthy one-pan breakfast or dinner, this dairy-free frittata is absolutely delicious. Packed with veggies
+              and hearty sausage, you'll love this baked frittata for fast meals, meal prep, and leftovers.
+            </p>
+            <a href="https://www.sustainablecooks.com/paleo-frittata/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\Gluten-free-tomato-soup-1a-540x540.jpg" alt="Gluten-Free Tomato Soup">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Gluten-Free Tomato Soup</h2>
+            <p>
+              Use convenient canned whole tomatoes for a creamy and delicious dairy-free soup that is ready in a flash!
+            </p>
+            <a href="https://www.sustainablecooks.com/tomato-soup/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\gluten-free-quiche-4-540x540.jpg" alt="Gluten-Free Quiche">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Gluten-Free Quiche</h2>
+            <p>
+              Gluten-Free Quiche, also dairy-free, and Whole30 compliant, is delicious for breakfast, lunch, or even dinner.
+            </p>
+            <a href="https://www.sustainablecooks.com/hashbrown-crust-quiche/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- dark mode  -->
+  <script>
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+
+</body>
+
+<footer>
+  <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+  <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+</footer>
+
+</html>
