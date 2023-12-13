@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+  China Saturley
+  Semester: Fall 2023
+-->
+
+<html lang="en">
+
+<head>
+  <title>Lunch Recipes</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Import fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="CSS\style.css">
+    <link rel="stylesheet" id="stylesheet" href="lightmode.css">
+
+</head>
+
+<body>
+  <!-- ----------------------- Navigation Bar ----------------------- -->
+  <div class="header_placeholder">
+    <header class="Navigation">
+      <ul class="navbar">
+        <li style="float: right;"><a href="contact.html">Contact Us</a></li>
+
+        <li class="dropdown" style="float: right;">
+          <a href="#" class="dropbtn">Recipes</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+
+        <li style="float: right;"><a href="about.html">About Us</a></li>
+        <li style="float: right;"><a href="index.html">Home</a></li>
+        <li>
+          <div class="logo">
+            <img src="Assets\logo.png" alt="logo">
+            <p id="logoname">Sustainable Spoonfuls</p>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <!-- ------------------------------------------------------------------- -->
+  <div class="page_title">
+    <h1>Lunch Recipes</h1>
+  </div>
+
+  <table>
+    <tbody>
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\artichoke-pizza-7-540x540.jpg" alt="Artichoke Pizza">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Artichoke Pizza</h2>
+            <p>
+              This artichoke pizza is a simple dinner of pure delicious homemade comfort food. A creamy white pizza sauce, artichoke
+              hearts, and smoky cheese come together in a tasty homemade pizza recipe.
+            </p>
+            <a href="https://www.sustainablecooks.com/artichoke-pizza/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\air-fryer-chicken-taquitos-7-540x540.jpg" alt="Air Fryer Chicken Taquitos">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Air Fryer Chicken Taquitos</h2>
+            <p>
+              These delicious homemade air fryer taquitos are packed with tons of flavor. Baked, not fried, they are perfect for fast
+              dinners and cook in only 9 minutes! No air fryer? You’ll also find oven-baking methods in the post.
+            </p>
+            <a href="https://www.sustainablecooks.com/air-fryer-taquitos/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\kale-chopped-salad-14-540x540.jpg" alt="Easy Cabbage Salad">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Easy Cabbage Salad</h2>
+            <p>
+              This delicious cabbage salad is a powerhouse of veggies with a touch of {optional} bacon. A hearty make-ahead salad that
+              is packed with so much flavor, it might just become your new favorite side dish.
+            </p>
+            <a href="https://www.sustainablecooks.com/chopped-salad/" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="recipe-picture">
+          <img src="Assets\Tortellini-Pasta-Salad-3-540x540.jpg" alt="Tortellini Pasta Salad">
+        </td>
+        <td class="recipe-info">
+          <div class="recipe-details">
+            <h2>Tortellini Pasta Salad</h2>
+            <p>
+              This cheese tortellini pasta salad is a simple and easy meal that you can throw together in 15 minutes or less. Perfect
+              as a fast side, main dish, or quick lunch, this cold tortellini salad will become a family favorite.
+            </p>
+            <a href="sustainablecooks" class="button">Go to recipe!</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- dark mode  -->
+  <script>
+    function checkDarkModePreference() {
+      var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      var body = document.body;
+      body.classList.toggle('dark-mode', isDarkMode);
+
+      var stylesheet = document.getElementById('stylesheet');
+      stylesheet.href = isDarkMode ? 'CSS/darkmode.css' : 'CSS/style.css';
+    }
+
+    window.onload = checkDarkModePreference;
+  </script>
+
+  <div id="mode_button">
+    <button onclick="toggleDarkMode()">Switch View Mode</button>
+    <script src="darkmode-toggle.js"></script>
+  </div>
+  
+</body>
+
+<footer>
+  <p>WebPage made by: Parvathy Santhosh & China Saturley</p>
+  <p>Recipies from: <a href="https://www.sustainablecooks.com/">Sustainable Cooks</a></p>
+</footer>
+
+</html>
